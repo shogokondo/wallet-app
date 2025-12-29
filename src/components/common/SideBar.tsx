@@ -20,7 +20,7 @@ interface MenuItem {
 const SideBar = ({drawerWidth,mobileOpen,handleDrawerClose,handleDrawerTransitionEnd}:SideBarProps) => {
     const menuItems: MenuItem[] = [
     { text: 'Home', path: '/', id:"001", icon: HomeIcon },
-    { text: 'Report', path: '/report', id:"001", icon: Equalizer },
+    { text: 'Report', path: '/report', id:"002", icon: Equalizer },
   ];
 
   const drawer = (
