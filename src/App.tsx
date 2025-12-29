@@ -4,13 +4,16 @@ import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Report from './pages/Report';
 import NotFound from './pages/NotFound';
+import AppLayout from './components/layout/AppLayout';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element= {<Home />} />
-        <Route path='/report' element= {<Report />} />
+        <Route path='/' element={<AppLayout />}>
+          <Route path='/' element= {<Home />} />
+          <Route path='/report' element= {<Report />} />
+        </Route>
         <Route path='*' element= {<NotFound />} />
       </Routes>
 
