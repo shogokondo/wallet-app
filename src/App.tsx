@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import AppLayout from './pages/layout/AppLayout';
+import AppLayout from './components/layout/AppLayout';
 
 function App() {
   return (
