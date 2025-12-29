@@ -1,7 +1,8 @@
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home';
 import { Equalizer } from '@mui/icons-material';
-import React from 'react'
+import React, { CSSProperties } from 'react'
+import { NavLink } from 'react-router-dom';
 
 interface SideBarProps {
   drawerWidth: number;
@@ -23,20 +24,34 @@ const SideBar = ({drawerWidth,mobileOpen,handleDrawerClose,handleDrawerTransitio
     { text: 'Report', path: '/report', id:"002", icon: Equalizer },
   ];
 
+  const baseLinkStyle:CSSProperties = {
+    textDecoration: 'none',
+    color: 'inherit',
+    display: 'block'
+  }
+
+  const activeLinkeStyle:CSSProperties = {
+    backgroundColor: 'rgba(0, 0, 0, 0.08)'
+  }
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
         {menuItems.map((item, index) => (
-          <ListItem key={item.id} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <item.icon />
-              </ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
+            <NavLink 
+                to={item.path} 
+                style={({ isActive }) => ({...baseLinkStyle, ...(isActive&&activeLinkeStyle)})} 
+                key={item.id}>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                    <ListItemIcon>
+                        <item.icon />
+                    </ListItemIcon>
+                    <ListItemText primary={item.text} />
+                    </ListItemButton>
+                </ListItem>
+            </NavLink>
         ))}
       </List>
       <Divider />
